@@ -1,1 +1,1 @@
-# WorkoutApp
+# Workout Tracker App - React Native
