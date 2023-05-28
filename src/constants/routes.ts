@@ -20,8 +20,14 @@ export default {
   SETTINGS_DETAIL: 'Settings Detail',
   PROFILE: 'My Profile',
 
-  SUMMARY: 'Summary',
-  EXERCISE: 'Exercise',
+  HISTORYSTACK: 'History',
+  HISTORY: 'History ',
+
+  EXERCISESSTACK: 'Exercises',
+  EXERCISES: 'Exercises ',
+
+  WORKOUTSTACK: 'Workout',
+  WORKOUT: 'Workout ',
+
   CATEGORY: 'Category',
-  ROUTINE: 'Routine',
 };

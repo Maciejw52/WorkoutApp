@@ -1,3 +1,12 @@
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs';
+import { BottomTabDescriptorMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
+import {
+  NavigationHelpers,
+  ParamListBase,
+  TabNavigationState,
+} from '@react-navigation/native';
+import { EdgeInsets } from 'react-native-safe-area-context';
+
 export interface Exercise {
   name: string;
   level: string;
@@ -5,4 +14,23 @@ export interface Exercise {
   category: string;
   force: string | null;
   primaryMuscles: string[];
+}
+
+export interface NavBarIconProps {
+  route: any;
+  color: string;
+  size: number;
+}
+
+export interface TabNavigatorProps {
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
+  state: TabNavigationState<ParamListBase>;
+  descriptors: BottomTabDescriptorMap;
+  insets: EdgeInsets;
+}
+
+export interface RouteProps {
+  key: string;
+  name: string;
+  params: any;
 }

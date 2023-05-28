@@ -4,9 +4,7 @@ import { useTheme } from 'react-native-paper';
 
 const styles = {
   default: {
-    marginLeft: 8,
-    marginRight: 8,
-    marginTop: 8,
+    margin: 8,
     borderRadius: 12,
     borderWidth: 1,
     overflow: 'hidden' as const,

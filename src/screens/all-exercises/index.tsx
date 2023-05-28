@@ -15,7 +15,7 @@ import exercisesData from '../../database/exercises.json';
 import { Exercise } from '../../app.interface';
 import ItemWrapper from './components/wrapper/item-wrapper';
 
-export const AllExerciseScreen: React.FC = () => {
+export const AllExerciseScreen = () => {
   const [searchText, setSearchText] = useState('');
   const [exercises, setExercises] = useState<Exercise[]>(
     exercisesData.exercises.map(({ instructions, ...rest }) => rest),
@@ -38,22 +38,6 @@ export const AllExerciseScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.exercises_list}>
-      {/* Render the search bar */}
-
-      <ItemWrapper>
-        <TextInput
-          style={{
-            backgroundColor: theme.colors.secondary,
-            color: theme.colors.onSecondary,
-          }}
-          placeholderTextColor={theme.colors.onSecondary}
-          textColor={theme.colors.onSecondary}
-          placeholder='Search Exercise'
-          value={searchText}
-          onChangeText={handleSearch}
-        />
-      </ItemWrapper>
-
       {/* Render the list of filtered exercises */}
       <Panel>
         <FlashList
@@ -70,6 +54,22 @@ export const AllExerciseScreen: React.FC = () => {
           ItemSeparatorComponent={() => <ListSeparator />}
         />
       </Panel>
+
+      {/* Render the search bar */}
+      <ItemWrapper>
+        <TextInput
+          theme={theme}
+          style={{
+            backgroundColor: theme.colors.secondary,
+            color: theme.colors.onSecondary,
+          }}
+          placeholderTextColor={theme.colors.onSecondary}
+          textColor={theme.colors.onSecondary}
+          placeholder='Search Exercise'
+          value={searchText}
+          onChangeText={handleSearch}
+        />
+      </ItemWrapper>
     </SafeAreaView>
   );
 };

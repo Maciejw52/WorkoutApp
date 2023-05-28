@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { useColorScheme } from 'react-native';
 import { MD3DarkTheme, MD3LightTheme, PaperProvider } from 'react-native-paper';
-import MainNavigator from './navigations/MainNavigator';
+import MainAppNavigator from './navigations/MainNavigator';
 import { DarkAppTheme, LightAppTheme } from './theme/theme';
 
 export function App() {
@@ -16,7 +16,7 @@ export function App() {
   return (
     <PaperProvider theme={paperTheme}>
       <NavigationContainer>
-        <MainNavigator />
+        <MainAppNavigator />
       </NavigationContainer>
     </PaperProvider>
   );

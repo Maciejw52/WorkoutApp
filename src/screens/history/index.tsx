@@ -1,8 +1,7 @@
-import { StyleSheet, SafeAreaView, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
 import React from 'react';
 
-export const CategoryScreen = () => {
+export const HistoryScreen = () => {
   return (
     <SafeAreaView
       style={{
@@ -13,12 +12,10 @@ export const CategoryScreen = () => {
       }}
     >
       <View>
-        <Text>Category Page</Text>
+        <Text>History Page</Text>
       </View>
     </SafeAreaView>
   );
 };
 
-export default CategoryScreen;
-
-const styles = StyleSheet.create({});
+export default HistoryScreen;

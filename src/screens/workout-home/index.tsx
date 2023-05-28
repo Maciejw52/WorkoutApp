@@ -1,8 +1,7 @@
-import { StyleSheet, SafeAreaView, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
 import React from 'react';
 
-export const CategoryScreen = () => {
+export const WorkoutHomeScreen = () => {
   return (
     <SafeAreaView
       style={{
@@ -13,12 +12,12 @@ export const CategoryScreen = () => {
       }}
     >
       <View>
-        <Text>Category Page</Text>
+        <Text>Workout Home Page</Text>
       </View>
     </SafeAreaView>
   );
 };
 
-export default CategoryScreen;
+export default WorkoutHomeScreen;
 
 const styles = StyleSheet.create({});
