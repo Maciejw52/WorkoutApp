@@ -1,13 +1,9 @@
 export default {
-  gradientForm: '#A376F1',
-  primary: '#7d5fff',
-  white: '#FFFFFF',
-  dark: '#444',
-  bgColor: '#F5F5F5',
-  warning: '#f0d500',
-  danger: '#FF0D0E',
-  gray: '#666666',
-  grayLight: '#ccc',
-  black: '#0a0a0a',
-  blue: '#87CEEB',
+  primary: '#01959a', // Darkest gray
+  secondary: '#9a0601', // Dark gray
+  background: '#ffffff', // Light gray
+  accent: '#999999', // Lighter gray
+  text: '#ffffff',
+  sand_dollar: '#E5DDC8',
+  teal: '#01949A',
 };

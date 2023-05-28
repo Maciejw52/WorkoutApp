@@ -1,16 +1,24 @@
-import * as React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-
-import AuthNavigator from './navigations/MainNavigator';
-import { IconComponentProvider } from '@react-native-material/core';
+import { useColorScheme } from 'react-native';
+import { MD3DarkTheme, MD3LightTheme, PaperProvider } from 'react-native-paper';
+import MainNavigator from './navigations/MainNavigator';
+import { DarkAppTheme, LightAppTheme } from './theme/theme';
 
 export function App() {
+  const colorScheme = useColorScheme();
+
+  const paperTheme =
+    colorScheme !== 'dark'
+      ? { ...MD3LightTheme, ...LightAppTheme }
+      : { ...MD3DarkTheme, ...DarkAppTheme };
+
   return (
-    <>
+    <PaperProvider theme={paperTheme}>
       <NavigationContainer>
-        <AuthNavigator />
+        <MainNavigator />
       </NavigationContainer>
-    </>
+    </PaperProvider>
   );
 }
 
