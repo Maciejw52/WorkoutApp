@@ -1,0 +1,35 @@
+{
+  "primaryMuscles": {
+    "levels": ["intermediate", "beginner", "expert"],
+    "mechanics": ["compound", "isolation"],
+    "categories": [
+      "plyometrics",
+      "cardio",
+      "strongman",
+      "strength",
+      "powerlifting",
+      "olympic weightlifting",
+      "stretching"
+    ],
+    "forces": ["pull", "push", "static"],
+    "primaryMuscles": [
+      "lats",
+      "hamstrings",
+      "abductors",
+      "quadriceps",
+      "lower back",
+      "traps",
+      "triceps",
+      "shoulders",
+      "chest",
+      "neck",
+      "glutes",
+      "calves",
+      "middle back",
+      "adductors",
+      "forearms",
+      "biceps",
+      "abdominals"
+    ]
+  }
+}
