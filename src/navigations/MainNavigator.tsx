@@ -2,7 +2,7 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { ROUTES } from '../constants';
 import { SummaryScreen } from '../screens/summary';
-import { ExerciseScreen } from '../screens/exercise';
+import ExerciseScreen from '../screens/exercise';
 import { CategoryScreen } from '../screens/category';
 
 const Tab = createMaterialTopTabNavigator();
