@@ -5,6 +5,10 @@ import { MD3DarkTheme, MD3LightTheme, PaperProvider } from 'react-native-paper';
 import MainAppNavigator from './navigations/MainNavigator';
 import { DarkAppTheme, LightAppTheme } from './theme/theme';
 
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './state/store';
+
 export function App() {
   const colorScheme = useColorScheme();
 
@@ -14,11 +18,15 @@ export function App() {
       : { ...MD3DarkTheme, ...DarkAppTheme };
 
   return (
-    <PaperProvider theme={paperTheme}>
-      <NavigationContainer>
-        <MainAppNavigator />
-      </NavigationContainer>
-    </PaperProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <PaperProvider theme={paperTheme}>
+          <NavigationContainer>
+            <MainAppNavigator />
+          </NavigationContainer>
+        </PaperProvider>
+      </PersistGate>
+    </Provider>
   );
 }
 
