@@ -48,6 +48,7 @@ export interface ExerciseHistory {
 }
 
 export interface CompletedWorkout {
+  id: string;
   workoutName: string;
   date: string;
   duration: string;

@@ -1,10 +1,9 @@
 import { StyleSheet } from 'react-native';
 import React from 'react';
-import { Exercise } from '../../../../app.interface';
-import WorkoutHistoryComponent from '../workout-history-component';
+import WorkoutHistoryItem from '../workout-history-item';
 
 const renderWorkoutItem = ({ item }: { item: CompletedWorkout }) => {
-  return <WorkoutHistoryComponent item={item} />;
+  return <WorkoutHistoryItem item={item} />;
 };
 
 export default renderWorkoutItem;

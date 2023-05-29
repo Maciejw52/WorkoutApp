@@ -5,8 +5,6 @@ import { useAppTheme } from '../../../../utils/use-app-theme';
 const styles = {
   default: {
     flex: 1,
-    marginLeft: 8,
-    marginRight: 8,
     marginTop: 8,
     borderRadius: 12,
     borderWidth: 1,

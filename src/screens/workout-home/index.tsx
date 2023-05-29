@@ -1,8 +1,9 @@
-import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import React from 'react';
-import { Button } from 'react-native-paper';
+import { Avatar, Button, Card, Text } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import { format } from 'date-fns';
+import { v4 as uuidv4 } from 'uuid';
 
 // Internal imports
 import {
@@ -14,62 +15,85 @@ import { generateRandomWorkoutTime } from '../../utils/generators';
 // Interface imports
 import { CompletedWorkout } from '../../app.interface';
 import { useAppTheme } from '../../utils/use-app-theme';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export const WorkoutHomeScreen = () => {
-  const dispatch = useDispatch();
   const theme = useAppTheme();
 
-  const currentdate = format(new Date(), 'dd MMM yyyy');
-  const duration = generateRandomWorkoutTime();
-
-  const handleAddExerciseData = () => {
-    const workoutData: CompletedWorkout = {
-      workoutName: 'Afternoon Workout',
-      date: currentdate,
-      duration: duration,
-      exercises: [
-        {
-          name: 'Squat',
-          sets: [
-            {
-              reps: Math.floor(Math.random() * 5) + 6,
-              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
-              weight_pounds: Math.floor(Math.random() * 51) + 50,
-            },
-          ],
-        },
-      ],
-    };
-
-    dispatch(storeCompletedWorkout(workoutData));
-  };
-
-  const handleDeleteAllExercises = () => {
-    dispatch(deleteAllExercises());
-  };
-
   return (
-    <SafeAreaView
-      style={{
-        display: 'flex',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: theme.colors.background,
-      }}
-    >
-      <View>
-        <Button onPress={handleAddExerciseData}>Add Exercise Data</Button>
-      </View>
-      <View>
-        <Button
-          onPress={handleDeleteAllExercises}
-          textColor={theme.colors.error}
-        >
-          Delete All Exercise Data
-        </Button>
-      </View>
-    </SafeAreaView>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <SafeAreaView
+        style={{
+          display: 'flex',
+          flex: 1,
+          backgroundColor: theme.colors.background,
+          paddingHorizontal: theme.spacing.md,
+          paddingBottom: theme.spacing.md,
+          rowGap: 10,
+        }}
+      >
+        <Card theme={theme}>
+          <Card.Title
+            title='Card Title'
+            subtitle='Card Subtitle'
+            left={props => <Avatar.Icon {...props} icon='folder' />}
+          />
+          <Card.Content>
+            <Text variant='titleLarge'>Card title</Text>
+            <Text variant='bodyMedium'>Card content</Text>
+          </Card.Content>
+          <Card.Actions>
+            <Button>Cancel</Button>
+            <Button>Ok</Button>
+          </Card.Actions>
+        </Card>
+        <Card>
+          <Card.Title
+            title='Card Title'
+            subtitle='Card Subtitle'
+            left={props => <Avatar.Icon {...props} icon='folder' />}
+          />
+          <Card.Content>
+            <Text variant='titleLarge'>Card title</Text>
+            <Text variant='bodyMedium'>Card content</Text>
+          </Card.Content>
+          <Card.Actions>
+            <Button>Cancel</Button>
+            <Button>Ok</Button>
+          </Card.Actions>
+        </Card>
+        <Card>
+          <Card.Title
+            title='Card Title'
+            subtitle='Card Subtitle'
+            left={props => <Avatar.Icon {...props} icon='folder' />}
+          />
+          <Card.Content>
+            <Text variant='titleLarge'>Card title</Text>
+            <Text variant='bodyMedium'>Card content</Text>
+          </Card.Content>
+          <Card.Actions>
+            <Button>Cancel</Button>
+            <Button>Ok</Button>
+          </Card.Actions>
+        </Card>
+        <Card>
+          <Card.Title
+            title='Card Title'
+            subtitle='Card Subtitle'
+            left={props => <Avatar.Icon {...props} icon='folder' />}
+          />
+          <Card.Content>
+            <Text variant='titleLarge'>Card title</Text>
+            <Text variant='bodyMedium'>Card content</Text>
+          </Card.Content>
+          <Card.Actions>
+            <Button>Cancel</Button>
+            <Button>Ok</Button>
+          </Card.Actions>
+        </Card>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 

@@ -52,11 +52,18 @@ export const LightAppTheme = {
     md: 16,
     lg: 24,
   },
+  fontSize: {
+    xs: 10,
+    sm: 12,
+    md: 16,
+    lg: 18,
+    xl: 20,
+  },
 };
 
 export type AppTheme = typeof LightAppTheme;
 
-export const DarkAppTheme = {
+export const DarkAppTheme: AppTheme = {
   ...MD3DarkTheme,
   custom: 'property',
   colors: {
@@ -107,5 +114,12 @@ export const DarkAppTheme = {
     sm: 12,
     md: 16,
     lg: 24,
+  },
+  fontSize: {
+    xs: 10,
+    sm: 12,
+    md: 16,
+    lg: 18,
+    xl: 20,
   },
 };

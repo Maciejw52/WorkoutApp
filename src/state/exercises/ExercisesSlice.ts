@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CompletedWorkout } from '../../app.interface';
 
 interface ExerciseState {
   completedWorkouts: CompletedWorkout[];
@@ -22,9 +23,17 @@ const exerciseSlice = createSlice({
     deleteAllExercises: state => {
       state.completedWorkouts = [];
     },
+    deleteExercise: (state, action: PayloadAction<string>) => {
+      const index = state.completedWorkouts.findIndex(
+        workout => workout.id === action.payload,
+      );
+      if (index !== -1) {
+        state.completedWorkouts.splice(index, 1);
+      }
+    },
   },
 });
 
-export const { storeCompletedWorkout, deleteAllExercises } =
+export const { storeCompletedWorkout, deleteAllExercises, deleteExercise } =
   exerciseSlice.actions;
 export default exerciseSlice.reducer;
