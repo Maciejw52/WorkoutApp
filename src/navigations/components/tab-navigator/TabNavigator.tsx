@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import React from 'react';
-import { BottomNavigation, useTheme } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 import { CommonActions } from '@react-navigation/native';
 import TabIconRender from '../tab-icon-render/TabIconRender';
 import { TabNavigatorProps } from '../../../app.interface';
+import { useAppTheme } from '../../../utils/use-app-theme';
 
 export const TabNavigator = ({
   navigation,
@@ -11,7 +12,7 @@ export const TabNavigator = ({
   descriptors,
   insets,
 }: TabNavigatorProps) => {
-  const theme = useTheme();
+  const theme = useAppTheme();
 
   return (
     <BottomNavigation.Bar

@@ -1,53 +1,37 @@
-import { StyleSheet, Text, SafeAreaView, View, ScrollView } from 'react-native';
 import React from 'react';
+import { Text, SafeAreaView } from 'react-native';
 import { RootState } from '../../state/store';
 import { useSelector } from 'react-redux';
+import { FlashList } from '@shopify/flash-list';
+import renderWorkoutItem from './components/render-workout-item';
+import WorkoutItemSeparator from './components/workout-item-separator';
+import { useAppTheme } from '../../utils/use-app-theme';
 
 export const HistoryScreen = () => {
-  const completedWorkouts = useSelector((state: RootState) => state);
-
-  console.log(completedWorkouts.exercise.completedWorkouts);
-
-  if (completedWorkouts.exercise.completedWorkouts.length === 0) {
-    return (
-      <SafeAreaView
-        style={{
-          display: 'flex',
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <View>
-          <Text>You have no Workouts</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
-
+  const completedWorkouts = useSelector(
+    (state: RootState) => state.exercise.completedWorkouts,
+  );
+  const workoutsListLength = completedWorkouts.length;
+  const theme = useAppTheme();
   return (
     <SafeAreaView
       style={{
         display: 'flex',
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: theme.colors.background,
+        paddingHorizontal: 12,
       }}
     >
-      <ScrollView>
-        {completedWorkouts.exercise.completedWorkouts.map(
-          (singleWorkout, index) => {
-            console.log(singleWorkout);
-            return (
-              <View key={index}>
-                <View>
-                  <Text>Hello</Text>
-                </View>
-              </View>
-            );
-          },
-        )}
-      </ScrollView>
+      {workoutsListLength !== 0 ? (
+        <FlashList
+          data={completedWorkouts}
+          renderItem={renderWorkoutItem}
+          estimatedItemSize={100}
+          ItemSeparatorComponent={WorkoutItemSeparator}
+        ></FlashList>
+      ) : (
+        <Text>You have no Workouts</Text>
+      )}
     </SafeAreaView>
   );
 };

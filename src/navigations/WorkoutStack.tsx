@@ -16,6 +16,7 @@ const WorkoutStackScreen = () => {
       <WorkoutStack.Screen
         name={ROUTES.WORKOUT}
         component={WorkoutHomeScreen}
+        initialParams={{ initialRoute: true }}
       />
     </WorkoutStack.Navigator>
   );

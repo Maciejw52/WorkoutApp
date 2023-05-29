@@ -13,7 +13,11 @@ const HistoryStackScreen = () => {
         header: Navbar,
       }}
     >
-      <HistoryStack.Screen name={ROUTES.HISTORY} component={HistoryScreen} />
+      <HistoryStack.Screen
+        initialParams={{ initialRoute: true }}
+        name={ROUTES.HISTORY}
+        component={HistoryScreen}
+      />
     </HistoryStack.Navigator>
   );
 };

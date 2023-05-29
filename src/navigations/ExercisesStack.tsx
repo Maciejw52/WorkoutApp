@@ -16,6 +16,7 @@ const ExercisesStackScreen = () => {
       <ExercisesStack.Screen
         name={ROUTES.EXERCISES}
         component={AllExerciseScreen}
+        initialParams={{ initialRoute: true }}
       />
     </ExercisesStack.Navigator>
   );

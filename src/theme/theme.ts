@@ -1,4 +1,8 @@
+import { MD3DarkTheme, MD3LightTheme } from 'react-native-paper';
+
 export const LightAppTheme = {
+  ...MD3LightTheme,
+  custom: 'property',
   colors: {
     primary: 'rgb(71, 85, 182)',
     onPrimary: 'rgb(255, 255, 255)',
@@ -41,9 +45,20 @@ export const LightAppTheme = {
     onSurfaceDisabled: 'rgba(27, 27, 31, 0.38)',
     backdrop: 'rgba(47, 48, 56, 0.4)',
   },
+  spacing: {
+    xxs: 4,
+    xs: 8,
+    sm: 12,
+    md: 16,
+    lg: 24,
+  },
 };
 
+export type AppTheme = typeof LightAppTheme;
+
 export const DarkAppTheme = {
+  ...MD3DarkTheme,
+  custom: 'property',
   colors: {
     primary: 'rgb(187, 195, 255)',
     onPrimary: 'rgb(17, 34, 134)',
@@ -85,5 +100,12 @@ export const DarkAppTheme = {
     surfaceDisabled: 'rgba(228, 225, 230, 0.12)',
     onSurfaceDisabled: 'rgba(228, 225, 230, 0.38)',
     backdrop: 'rgba(47, 48, 56, 0.4)',
+  },
+  spacing: {
+    xxs: 4,
+    xs: 8,
+    sm: 12,
+    md: 16,
+    lg: 24,
   },
 };

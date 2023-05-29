@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { Appbar, useTheme } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import { useAppTheme } from '../../../utils/use-app-theme';
 
 const Navbar = ({ route }: { route: any }) => {
-  const theme = useTheme();
+  const theme = useAppTheme();
   const navigation = useNavigation();
 
   const handleBackButtonPress = () => {
@@ -13,10 +14,11 @@ const Navbar = ({ route }: { route: any }) => {
 
   return (
     <Appbar.Header mode='small' theme={theme}>
-      {navigation.canGoBack() && (
+      {!route.params?.initialRoute && (
         <Appbar.BackAction onPress={handleBackButtonPress} />
       )}
       <Appbar.Content title={route.name} />
+      <Appbar.Action icon='account-circle' onPress={() => null} />
       <Appbar.Action icon='dots-vertical' onPress={() => null} />
     </Appbar.Header>
   );

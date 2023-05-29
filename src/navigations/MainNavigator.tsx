@@ -25,11 +25,20 @@ const MainAppNavigator = () => {
         />
       )}
     >
-      <Tab.Screen name={ROUTES.HISTORYSTACK} component={HistoryStackScreen} />
-      <Tab.Screen name={ROUTES.WORKOUTSTACK} component={WorkoutStackScreen} />
+      <Tab.Screen
+        name={ROUTES.HISTORYSTACK}
+        component={HistoryStackScreen}
+        initialParams={{ initialRoute: false }}
+      />
+      <Tab.Screen
+        name={ROUTES.WORKOUTSTACK}
+        component={WorkoutStackScreen}
+        initialParams={{ initialRoute: true }}
+      />
       <Tab.Screen
         name={ROUTES.EXERCISESSTACK}
         component={ExercisesStackScreen}
+        initialParams={{ initialRoute: false }}
       />
     </Tab.Navigator>
   );

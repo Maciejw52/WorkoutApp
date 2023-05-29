@@ -34,3 +34,22 @@ export interface RouteProps {
   name: string;
   params: any;
 }
+
+// Exercise Data
+export interface ExerciseSet {
+  reps: number;
+  weight_kilo: number;
+  weight_pounds: number;
+}
+
+export interface ExerciseHistory {
+  name: string;
+  sets: ExerciseSet[];
+}
+
+export interface CompletedWorkout {
+  workoutName: string;
+  date: string;
+  duration: string;
+  exercises: ExerciseHistory[];
+}

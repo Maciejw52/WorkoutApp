@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
-import { TextInput, useTheme } from 'react-native-paper';
-
+import { TextInput } from 'react-native-paper';
 // Internal imports
 import renderItem from './components/render-item/render-item';
 import ListSeparator from './components/list-separator';
@@ -12,6 +11,7 @@ import Panel from './components/panel';
 import exercisesData from '../../database/exercises.json';
 
 // Interface imports
+import { useAppTheme } from '../../utils/use-app-theme';
 import { Exercise } from '../../app.interface';
 import ItemWrapper from './components/wrapper/item-wrapper';
 
@@ -21,7 +21,7 @@ export const AllExerciseScreen = () => {
     exercisesData.exercises.map(({ instructions, ...rest }) => rest),
   );
   const [filteredExercises, setFilteredExercises] = useState<Exercise[]>([]);
-  const theme = useTheme();
+  const theme = useAppTheme();
 
   useEffect(() => {
     setExercises(exercisesData.exercises);

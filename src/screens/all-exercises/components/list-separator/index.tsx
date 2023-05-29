@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { useTheme } from 'react-native-paper';
+import { useAppTheme } from '../../../../utils/use-app-theme';
 
 const ListSeparator = () => {
-  const theme = useTheme();
+  const theme = useAppTheme();
 
   const Separator = [
     {

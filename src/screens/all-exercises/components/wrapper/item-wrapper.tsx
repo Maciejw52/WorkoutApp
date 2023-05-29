@@ -1,6 +1,6 @@
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import React, { ReactNode } from 'react';
-import { useTheme } from 'react-native-paper';
+import { useAppTheme } from '../../../../utils/use-app-theme';
 
 const styles = {
   default: {
@@ -12,7 +12,7 @@ const styles = {
 };
 
 const ItemWrapper = ({ children }: { children: ReactNode }) => {
-  const theme = useTheme();
+  const theme = useAppTheme();
 
   const PanelContainerStyle: StyleProp<ViewStyle> = [
     styles.default,

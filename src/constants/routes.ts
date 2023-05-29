@@ -26,7 +26,7 @@ export default {
   EXERCISESSTACK: 'Exercises',
   EXERCISES: 'Exercises ',
 
-  WORKOUTSTACK: 'Workout',
+  WORKOUTSTACK: 'Home',
   WORKOUT: 'Workout ',
 
   CATEGORY: 'Category',

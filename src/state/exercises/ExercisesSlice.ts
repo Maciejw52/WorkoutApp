@@ -19,8 +19,12 @@ const exerciseSlice = createSlice({
     storeCompletedWorkout: (state, action: PayloadAction<CompletedWorkout>) => {
       state.completedWorkouts.push(action.payload);
     },
+    deleteAllExercises: state => {
+      state.completedWorkouts = [];
+    },
   },
 });
 
-export const { storeCompletedWorkout } = exerciseSlice.actions;
+export const { storeCompletedWorkout, deleteAllExercises } =
+  exerciseSlice.actions;
 export default exerciseSlice.reducer;
