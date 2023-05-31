@@ -37,9 +37,35 @@ const Navbar = ({ route }: { route: any }) => {
             {
               reps: Math.floor(Math.random() * 5) + 6,
               weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
-              weight_pounds: Math.floor(Math.random() * 51) + 50,
+            },
+            {
+              reps: Math.floor(Math.random() * 5) + 6,
+              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
+            },
+            {
+              reps: Math.floor(Math.random() * 5) + 6,
+              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
             },
           ],
+          total: 123123,
+        },
+        {
+          name: 'Something Else',
+          sets: [
+            {
+              reps: Math.floor(Math.random() * 5) + 6,
+              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
+            },
+            {
+              reps: Math.floor(Math.random() * 5) + 6,
+              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
+            },
+            {
+              reps: Math.floor(Math.random() * 5) + 6,
+              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
+            },
+          ],
+          total: 123123,
         },
       ],
     };

@@ -1,19 +1,7 @@
 import { StyleSheet, SafeAreaView } from 'react-native';
 import React from 'react';
 import { Avatar, Button, Card, Text } from 'react-native-paper';
-import { useDispatch } from 'react-redux';
-import { format } from 'date-fns';
-import { v4 as uuidv4 } from 'uuid';
 
-// Internal imports
-import {
-  deleteAllExercises,
-  storeCompletedWorkout,
-} from '../../state/exercises/ExercisesSlice';
-import { generateRandomWorkoutTime } from '../../utils/generators';
-
-// Interface imports
-import { CompletedWorkout } from '../../app.interface';
 import { useAppTheme } from '../../utils/use-app-theme';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -21,7 +9,15 @@ export const WorkoutHomeScreen = () => {
   const theme = useAppTheme();
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{
+        display: 'flex',
+        flex: 1,
+        backgroundColor: theme.colors.background,
+        minHeight: '100%',
+      }}
+    >
       <SafeAreaView
         style={{
           display: 'flex',
@@ -29,68 +25,23 @@ export const WorkoutHomeScreen = () => {
           backgroundColor: theme.colors.background,
           paddingHorizontal: theme.spacing.md,
           paddingBottom: theme.spacing.md,
+          justifyContent: 'center',
           rowGap: 10,
         }}
       >
         <Card theme={theme}>
           <Card.Title
-            title='Card Title'
-            subtitle='Card Subtitle'
-            left={props => <Avatar.Icon {...props} icon='folder' />}
+            theme={theme}
+            title={<Text variant='titleLarge'>Start Workout</Text>}
+            left={props => <Avatar.Icon {...props} icon='dumbbell' />}
           />
-          <Card.Content>
-            <Text variant='titleLarge'>Card title</Text>
-            <Text variant='bodyMedium'>Card content</Text>
-          </Card.Content>
-          <Card.Actions>
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
-          </Card.Actions>
         </Card>
         <Card>
           <Card.Title
-            title='Card Title'
-            subtitle='Card Subtitle'
-            left={props => <Avatar.Icon {...props} icon='folder' />}
+            theme={theme}
+            title={<Text variant='titleLarge'>Review Previous Workout</Text>}
+            left={props => <Avatar.Icon {...props} icon='school' />}
           />
-          <Card.Content>
-            <Text variant='titleLarge'>Card title</Text>
-            <Text variant='bodyMedium'>Card content</Text>
-          </Card.Content>
-          <Card.Actions>
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
-          </Card.Actions>
-        </Card>
-        <Card>
-          <Card.Title
-            title='Card Title'
-            subtitle='Card Subtitle'
-            left={props => <Avatar.Icon {...props} icon='folder' />}
-          />
-          <Card.Content>
-            <Text variant='titleLarge'>Card title</Text>
-            <Text variant='bodyMedium'>Card content</Text>
-          </Card.Content>
-          <Card.Actions>
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
-          </Card.Actions>
-        </Card>
-        <Card>
-          <Card.Title
-            title='Card Title'
-            subtitle='Card Subtitle'
-            left={props => <Avatar.Icon {...props} icon='folder' />}
-          />
-          <Card.Content>
-            <Text variant='titleLarge'>Card title</Text>
-            <Text variant='bodyMedium'>Card content</Text>
-          </Card.Content>
-          <Card.Actions>
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
-          </Card.Actions>
         </Card>
       </SafeAreaView>
     </ScrollView>

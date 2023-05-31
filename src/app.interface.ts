@@ -39,12 +39,12 @@ export interface RouteProps {
 export interface ExerciseSet {
   reps: number;
   weight_kilo: number;
-  weight_pounds: number;
 }
 
 export interface ExerciseHistory {
   name: string;
   sets: ExerciseSet[];
+  total: number;
 }
 
 export interface CompletedWorkout {
