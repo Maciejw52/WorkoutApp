@@ -19,7 +19,7 @@ export const WorkoutHistoryItem = ({ item }: { item: CompletedWorkout }) => {
     >
       <Card.Title
         theme={theme}
-        title={<Text variant='titleMedium'>{item.workoutName}</Text>}
+        title={<Text variant='titleMedium'>{item.name}</Text>}
         subtitle={
           <View
             style={{

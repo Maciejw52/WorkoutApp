@@ -3,15 +3,12 @@ import { SafeAreaView, Text, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { Searchbar } from 'react-native-paper';
 
-// Internal imports
-import ListSeparator from './components/list-separator';
-import renderItem from './components/render-item/render-item';
-
 // Database imports
 import exercisesData from '../../../database/exercises.json';
 
 // Interface imports
 import { useAppTheme } from '../../../utils/use-app-theme';
+import renderWorkoutItem from './components/render-exercise-item';
 
 const AllExerciseScreen = () => {
   const [searchText, setSearchText] = useState('');
@@ -58,7 +55,7 @@ const AllExerciseScreen = () => {
       <FlashList
         showsVerticalScrollIndicator={false}
         data={exerciseData.filteredExercises}
-        renderItem={renderItem}
+        renderItem={renderWorkoutItem}
         estimatedItemSize={49.1}
         keyExtractor={item => item.name}
         ListEmptyComponent={
@@ -66,7 +63,6 @@ const AllExerciseScreen = () => {
             <Text>No items</Text>
           </View>
         }
-        ItemSeparatorComponent={() => <ListSeparator />}
       />
     </SafeAreaView>
   );

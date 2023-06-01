@@ -27,7 +27,7 @@ const Navbar = ({ route }: { route: any }) => {
   const handleAddExerciseData = () => {
     const workoutData: CompletedWorkout = {
       id: uuidv4(),
-      workoutName: 'Afternoon Workout',
+      name: 'Afternoon Workout',
       date: currentdate,
       duration: duration,
       exercises: [
@@ -50,7 +50,7 @@ const Navbar = ({ route }: { route: any }) => {
           total: 123123,
         },
         {
-          name: 'Something Else',
+          name: 'Bench',
           sets: [
             {
               reps: Math.floor(Math.random() * 5) + 6,
