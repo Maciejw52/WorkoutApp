@@ -5,14 +5,13 @@ import { Searchbar } from 'react-native-paper';
 
 // Internal imports
 import ListSeparator from './components/list-separator';
-import Panel from './components/panel';
 import renderItem from './components/render-item/render-item';
 
 // Database imports
-import exercisesData from '../../database/exercises.json';
+import exercisesData from '../../../database/exercises.json';
 
 // Interface imports
-import { useAppTheme } from '../../utils/use-app-theme';
+import { useAppTheme } from '../../../utils/use-app-theme';
 
 const AllExerciseScreen = () => {
   const [searchText, setSearchText] = useState('');
@@ -56,7 +55,6 @@ const AllExerciseScreen = () => {
         onChangeText={handleSearch}
         value={searchText}
       ></Searchbar>
-
       <FlashList
         showsVerticalScrollIndicator={false}
         data={exerciseData.filteredExercises}

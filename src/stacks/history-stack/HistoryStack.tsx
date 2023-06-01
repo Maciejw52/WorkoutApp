@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ROUTES } from '../constants';
-import HistoryScreen from '../screens/history';
-import Navbar from './components/navbar/Navbar';
+import { ROUTES } from '../../constants';
+import HistoryScreen from './history';
+import Navbar from '../../navigations/components/navbar/Navbar';
 
 const HistoryStack = createStackNavigator();
 

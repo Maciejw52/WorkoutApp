@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ROUTES } from '../constants';
-import Navbar from './components/navbar/Navbar';
-import WorkoutHomeScreen from '../screens/workout-home';
+import { ROUTES } from '../../constants';
+import Navbar from '../../navigations/components/navbar/Navbar';
+import WorkoutHomeScreen from './workout-home';
 
 const WorkoutStack = createStackNavigator();
 

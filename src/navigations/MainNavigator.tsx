@@ -2,10 +2,10 @@ import React from 'react';
 import { ROUTES } from '../constants';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HistoryStackScreen from './HistoryStack';
 import TabNavigator from './components/tab-navigator/TabNavigator';
-import WorkoutStackScreen from './WorkoutStack';
-import ExercisesStackScreen from './ExercisesStack';
+import ExercisesStackScreen from '../stacks/exercise-stack/ExercisesStack';
+import WorkoutStackScreen from '../stacks/workout-stack/WorkoutStack';
+import HistoryStackScreen from '../stacks/history-stack/HistoryStack';
 
 const Tab = createBottomTabNavigator();
 

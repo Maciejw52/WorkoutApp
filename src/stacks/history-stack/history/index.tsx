@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Text, SafeAreaView } from 'react-native';
-import { RootState } from '../../state/store';
+import { RootState } from '../../../state/store';
 import { useSelector } from 'react-redux';
 import { FlashList } from '@shopify/flash-list';
 import renderWorkoutItem from './components/render-workout-item';
-import { useAppTheme } from '../../utils/use-app-theme';
+import { useAppTheme } from '../../../utils/use-app-theme';
 
 export const HistoryScreen = () => {
   const completedWorkouts = useSelector(

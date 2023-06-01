@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { CompletedWorkout } from '../../../../app.interface';
-import { useAppTheme } from '../../../../utils/use-app-theme';
+import { CompletedWorkout } from '../../../../../app.interface';
+import { useAppTheme } from '../../../../../utils/use-app-theme';
 import { Card, Text } from 'react-native-paper';
 
 import { View } from 'react-native';
