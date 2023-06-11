@@ -18,7 +18,8 @@ const exerciseSlice = createSlice({
   initialState,
   reducers: {
     storeCompletedWorkout: (state, action: PayloadAction<CompletedWorkout>) => {
-      state.completedWorkouts.push(action.payload);
+      console.log(action.payload);
+      state.completedWorkouts = state.completedWorkouts.concat(action.payload);
     },
     deleteAllExercises: state => {
       state.completedWorkouts = [];

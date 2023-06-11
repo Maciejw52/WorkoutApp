@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, List } from 'react-native-paper';
 
 // Database imports
 import exercisesData from '../../../database/exercises.json';
@@ -54,6 +54,7 @@ const AllExerciseScreen = () => {
       ></Searchbar>
       <FlashList
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={<List.Subheader>Some title</List.Subheader>}
         data={exerciseData.filteredExercises}
         renderItem={renderWorkoutItem}
         estimatedItemSize={49.1}

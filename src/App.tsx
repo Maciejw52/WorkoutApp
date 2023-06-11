@@ -9,6 +9,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from './state/store';
 import { useAppTheme } from './utils/use-app-theme';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
 
 export function App() {
   const colorScheme = useColorScheme();

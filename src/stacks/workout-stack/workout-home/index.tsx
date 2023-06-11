@@ -17,6 +17,9 @@ export const WorkoutHomeScreen = () => {
         backgroundColor: theme.colors.background,
         minHeight: '100%',
       }}
+      contentContainerStyle={{
+        justifyContent: 'center',
+      }}
     >
       <SafeAreaView
         style={{
@@ -25,7 +28,6 @@ export const WorkoutHomeScreen = () => {
           backgroundColor: theme.colors.background,
           paddingHorizontal: theme.spacing.md,
           paddingBottom: theme.spacing.md,
-          justifyContent: 'center',
           rowGap: 10,
         }}
       >
@@ -39,7 +41,7 @@ export const WorkoutHomeScreen = () => {
         <Card>
           <Card.Title
             theme={theme}
-            title={<Text variant='titleLarge'>Review Previous Workout</Text>}
+            title={<Text variant='titleLarge'>Your Last Workout</Text>}
             left={props => <Avatar.Icon {...props} icon='school' />}
           />
         </Card>
