@@ -54,7 +54,7 @@ const AllExerciseScreen = () => {
       ></Searchbar>
       <FlashList
         showsVerticalScrollIndicator={false}
-        ListHeaderComponent={<List.Subheader>Some title</List.Subheader>}
+        // ListHeaderComponent={<List.Subheader>Some title</List.Subheader>}
         data={exerciseData.filteredExercises}
         renderItem={renderWorkoutItem}
         estimatedItemSize={49.1}

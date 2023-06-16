@@ -12,7 +12,12 @@ export const ExercisePane = ({ item }: { item: Exercise }) => {
     <View>
       <List.Item
         title={<Text variant='titleMedium'>{item.name}</Text>}
-        description='Item description'
+        description={
+          <Text>
+            {item.primaryMuscles[0].charAt(0).toUpperCase() +
+              item.primaryMuscles[0].slice(1)}
+          </Text>
+        }
         right={props => <List.Icon {...props} icon='chevron-right' />}
       />
     </View>

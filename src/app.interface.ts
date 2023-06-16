@@ -42,6 +42,7 @@ export interface ExerciseSet {
 }
 
 export interface ExerciseHistory {
+  id: string;
   name: string;
   sets: ExerciseSet[];
   total: number;

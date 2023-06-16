@@ -11,6 +11,8 @@ import {
 } from '../../../state/exercises/ExercisesSlice';
 import { useDispatch } from 'react-redux';
 
+import { faker } from '@faker-js/faker';
+
 const ProfileDialog = ({
   visible,
   hideDialog,
@@ -19,54 +21,62 @@ const ProfileDialog = ({
   hideDialog: () => void;
 }) => {
   const theme = useAppTheme();
-  const currentdate = format(new Date(), 'dd MMM yyyy');
-  const duration = generateRandomWorkoutTime();
+
   const dispatch = useDispatch();
 
   const handleAddExerciseData = () => {
+    const duration = generateRandomWorkoutTime();
+
+    const exerciseTitles = [
+      'Afternoon Workout',
+      'Morning Workout',
+      'Evening Workout',
+    ];
+    const exerciseNames = [
+      'Bicep Curls',
+      'Bench Press',
+      'Squats',
+      'Deadlifts',
+      'Push-ups',
+      'Lunges',
+      'Shoulder Press',
+      'Crunches',
+      'Tricep Dips',
+      'Leg Press',
+      'Lat Pulldowns',
+      'Plank',
+    ];
+
+    const exercises = [];
+    // Generate random exercise data
+    for (let i = 0; i < faker.number.int({ min: 2, max: 5 }); i++) {
+      // Adjust the number of exercises as needed
+      const exercise = {
+        id: uuidv4(),
+        name: exerciseNames[faker.number.int({ min: 0, max: 2 })],
+        sets: [],
+        total: faker.number.int({ min: 100, max: 1000 }),
+      };
+
+      // Generate random sets for the exercise
+      const numSets = faker.number.int({ min: 3, max: 6 });
+      for (let j = 0; j < numSets; j++) {
+        const set = {
+          reps: faker.number.int({ min: 6, max: 10 }),
+          weight_kilo: faker.number.int({ min: 50, max: 100 }) * 2,
+        };
+        exercise.sets.push(set);
+      }
+
+      exercises.push(exercise);
+    }
+
     const workoutData: CompletedWorkout = {
       id: uuidv4(),
-      name: 'Afternoon Workout',
-      date: currentdate,
+      name: exerciseTitles[faker.number.int({ min: 0, max: 2 })],
+      date: format(faker.date.past(), 'dd MMM yyyy'),
       duration: duration,
-      exercises: [
-        {
-          name: 'Squat',
-          sets: [
-            {
-              reps: Math.floor(Math.random() * 5) + 6,
-              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
-            },
-            {
-              reps: Math.floor(Math.random() * 5) + 6,
-              weight_kilo: (Math.floor(Math.random() * 56) + 52) * 2,
-            },
-            {
-              reps: Math.floor(Math.random() * 5) + 6,
-              weight_kilo: (Math.floor(Math.random() * 34) + 53) * 2,
-            },
-          ],
-          total: 123123,
-        },
-        {
-          name: 'Bench',
-          sets: [
-            {
-              reps: Math.floor(Math.random() * 5) + 6,
-              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
-            },
-            {
-              reps: Math.floor(Math.random() * 5) + 6,
-              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
-            },
-            {
-              reps: Math.floor(Math.random() * 5) + 6,
-              weight_kilo: (Math.floor(Math.random() * 51) + 50) * 2,
-            },
-          ],
-          total: 123123,
-        },
-      ],
+      exercises: exercises,
     };
 
     dispatch(storeCompletedWorkout(workoutData));

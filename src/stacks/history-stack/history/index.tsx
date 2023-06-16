@@ -1,42 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import { Text, SafeAreaView, FlatList } from 'react-native';
 import { RootState } from '../../../state/store';
 import { useSelector } from 'react-redux';
 import { FlashList } from '@shopify/flash-list';
 import renderWorkoutItem from './components/render-workout-item';
 import { useAppTheme } from '../../../utils/use-app-theme';
+import { ViewProps } from 'react-native-svg/lib/typescript/fabric/utils';
+
+const styles = {
+  container: {
+    display: 'flex' as const,
+    flex: 1,
+    // other styles
+  },
+};
 
 export const HistoryScreen = () => {
   const completedWorkouts = useSelector(
     (state: RootState) => state.exercise.completedWorkouts,
   );
 
-  const [workouts, setWorkouts] = useState(completedWorkouts);
-
-  useEffect(() => {
-    setWorkouts(completedWorkouts);
-  }, [completedWorkouts]);
-
   const workoutsListLength = completedWorkouts.length;
   const theme = useAppTheme();
+
   return (
     <SafeAreaView
-      style={{
-        display: 'flex',
-        flex: 1,
-        backgroundColor: theme.colors.background,
-      }}
+      style={[styles.container, { backgroundColor: theme.colors.background }]}
     >
       {workoutsListLength !== 0 ? (
-        <FlashList
+        <FlatList
           contentContainerStyle={{
             paddingBottom: theme.spacing.md,
             paddingHorizontal: theme.spacing.md,
           }}
-          data={workouts}
+          data={completedWorkouts}
           renderItem={renderWorkoutItem}
-          estimatedItemSize={100}
-        ></FlashList>
+          keyExtractor={item => item.id}
+          getItemLayout={(data, index) => ({
+            length: 100,
+            offset: 100 * index,
+            index,
+          })}
+        />
       ) : (
         <Text>You have no Workouts</Text>
       )}

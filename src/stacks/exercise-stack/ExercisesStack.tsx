@@ -11,10 +11,17 @@ const ExercisesStackScreen = () => {
     <ExercisesStack.Navigator
       screenOptions={{
         header: Navbar,
+        presentation: 'card',
+        gestureDirection: 'vertical',
       }}
     >
       <ExercisesStack.Screen
         name={ROUTES.EXERCISES}
+        component={AllExerciseScreen}
+        initialParams={{ initialRoute: true }}
+      />
+      <ExercisesStack.Screen
+        name={ROUTES.EXERCISES_DESCRIPTION}
         component={AllExerciseScreen}
         initialParams={{ initialRoute: true }}
       />

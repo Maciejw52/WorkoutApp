@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import React from 'react';
 import WorkoutHistoryItem from '../workout-history-item';
 import { CompletedWorkout } from '../../../../../app.interface';
@@ -9,5 +8,3 @@ const renderWorkoutItem = ({ item }: { item: CompletedWorkout }) => {
 };
 
 export default renderWorkoutItem;
-
-const styles = StyleSheet.create({});

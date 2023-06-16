@@ -25,6 +25,7 @@ export default {
 
   EXERCISESSTACK: 'Exercises',
   EXERCISES: 'Exercises ',
+  EXERCISES_DESCRIPTION: 'Exercise Description',
 
   WORKOUTSTACK: 'Home',
   WORKOUT: 'Workout ',

@@ -4,63 +4,34 @@ import { CompletedWorkout } from '../../../../../app.interface';
 import { useAppTheme } from '../../../../../utils/use-app-theme';
 import { Card, Text } from 'react-native-paper';
 
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MemoizedBadgeWithIcon } from '../icon-text-badge/badge';
+
+const styles = {
+  standard: {
+    display: 'flex' as const,
+    flexDirection: 'row' as const,
+    justifyContent: 'space-between' as const,
+  },
+};
 
 export const WorkoutHistoryItem = ({ item }: { item: CompletedWorkout }) => {
   const theme = useAppTheme();
 
   return (
-    <Card
-      theme={theme}
-      style={{
-        marginBottom: theme.spacing.md,
-      }}
-    >
+    <Card theme={theme} style={{ marginBottom: theme.spacing.md }}>
       <Card.Title
         theme={theme}
         title={<Text variant='titleMedium'>{item.name}</Text>}
         subtitle={
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              columnGap: theme.spacing.lg,
-            }}
-          >
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                columnGap: theme.spacing.xs,
-              }}
-            >
-              <Icon
-                name={'calendar-range'}
-                size={16}
-                color={theme.colors.onSecondaryContainer}
-              />
-              <Text variant='bodySmall'>{item.date}</Text>
-            </View>
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                columnGap: theme.spacing.xs,
-              }}
-            >
-              <Icon
-                name={'timer'}
-                size={16}
-                color={theme.colors.onSecondaryContainer}
-              />
-              <Text variant='bodySmall'>{item.duration}</Text>
-            </View>
+          <View style={[styles.standard, { columnGap: theme.spacing.lg }]}>
+            <MemoizedBadgeWithIcon icon={'calendar-range'} text={item.date} />
+            <MemoizedBadgeWithIcon icon={'timer'} text={item.duration} />
           </View>
         }
         rightStyle={{ right: theme.spacing.md, bottom: theme.spacing.sm }}
-        right={props => (
+        right={() => (
           <Icon
             name={'dots-vertical'}
             size={22}
@@ -69,30 +40,17 @@ export const WorkoutHistoryItem = ({ item }: { item: CompletedWorkout }) => {
         )}
       />
       <Card.Content>
-        <View
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-          }}
-        >
+        <View style={[styles.standard]}>
           <View style={{ marginBottom: theme.spacing.xxs }}>
-            <Text variant='titleSmall' style={{}}>
-              Exercise
-            </Text>
+            <Text variant='titleSmall'>Exercise</Text>
           </View>
           <Text variant='titleSmall'>Total lifted</Text>
         </View>
-        {item.exercises.map((exercise, i) => {
-          return (
-            <View
-              key={uuidv4()}
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                flexDirection: 'row',
-              }}
-            >
+        <FlatList
+          data={item.exercises}
+          keyExtractor={exercise => exercise.id}
+          renderItem={({ item: exercise }) => (
+            <View style={styles.standard}>
               <View>
                 <Text>
                   {exercise.sets.length} {'×'} {exercise.name}
@@ -100,8 +58,8 @@ export const WorkoutHistoryItem = ({ item }: { item: CompletedWorkout }) => {
               </View>
               <Text>{exercise.total.toLocaleString()} kg</Text>
             </View>
-          );
-        })}
+          )}
+        />
       </Card.Content>
     </Card>
   );
