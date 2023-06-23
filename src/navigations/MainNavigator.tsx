@@ -20,7 +20,6 @@ const MainAppNavigator = () => {
   return (
     <Tab.Navigator
       activeColor={theme.colors.secondary}
-      inactiveColor={theme.colors.secondary}
       sceneAnimationEnabled
       sceneAnimationType='shifting'
       theme={paperTheme}
@@ -40,7 +39,7 @@ const MainAppNavigator = () => {
       <Tab.Screen
         name={ROUTES.WORKOUTSTACK}
         options={{
-          tabBarIcon: 'dumbbell',
+          tabBarIcon: 'home',
         }}
         component={WorkoutStackScreen}
         initialParams={{ initialRoute: true }}

@@ -22,7 +22,7 @@ export function AppWithoutProvider() {
   const barStyle = colorScheme !== 'dark' ? 'dark-content' : 'light-content';
 
   const navigationTheme: Theme = {
-    dark: false,
+    dark: paperTheme.dark,
     colors: {
       primary: paperTheme.colors.primary,
       background: paperTheme.colors.background,

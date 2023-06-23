@@ -10,11 +10,12 @@ const ExercisesStack = createStackNavigator();
 const ExercisesStackScreen = () => {
   return (
     <ExercisesStack.Navigator
+      detachInactiveScreens
       initialRouteName={ROUTES.EXERCISES}
       screenOptions={{
         header: Navbar,
-        presentation: 'card',
-        gestureDirection: 'vertical',
+        presentation: 'modal',
+        gestureDirection: 'horizontal',
       }}
     >
       <ExercisesStack.Screen
