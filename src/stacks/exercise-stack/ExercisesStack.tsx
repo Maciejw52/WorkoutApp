@@ -3,12 +3,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { ROUTES } from '../../constants';
 import AllExerciseScreen from './all-exercises';
 import Navbar from '../../navigations/components/navbar/Navbar';
+import ExerciseDescriptionScreen from './exercise-description/exercise-description-screen';
 
 const ExercisesStack = createStackNavigator();
 
 const ExercisesStackScreen = () => {
   return (
     <ExercisesStack.Navigator
+      initialRouteName={ROUTES.EXERCISES}
       screenOptions={{
         header: Navbar,
         presentation: 'card',
@@ -22,8 +24,8 @@ const ExercisesStackScreen = () => {
       />
       <ExercisesStack.Screen
         name={ROUTES.EXERCISES_DESCRIPTION}
-        component={AllExerciseScreen}
-        initialParams={{ initialRoute: true }}
+        component={ExerciseDescriptionScreen}
+        initialParams={{ initialRoute: false }}
       />
     </ExercisesStack.Navigator>
   );

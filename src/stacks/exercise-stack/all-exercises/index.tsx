@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
-import { Searchbar, List } from 'react-native-paper';
+import { Searchbar } from 'react-native-paper';
 
 // Database imports
 import exercisesData from '../../../database/exercises.json';

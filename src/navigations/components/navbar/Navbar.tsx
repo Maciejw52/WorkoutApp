@@ -7,7 +7,7 @@ import ProfileDialog from '../profile-dialog/profile-dialog';
 const Navbar = ({ route }: { route: any }) => {
   const navigation = useNavigation();
   const theme = useAppTheme();
-
+  console.log(route);
   const handleBackButtonPress = () => {
     navigation.goBack();
   };

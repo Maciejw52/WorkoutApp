@@ -2,14 +2,24 @@ import React from 'react';
 import { Exercise } from '../../../../../app.interface';
 import { useAppTheme } from '../../../../../utils/use-app-theme';
 import { List, Text } from 'react-native-paper';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { ROUTES } from '../../../../../constants';
 
-import { View } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+interface ExercisePaneProps {
+  item: Exercise;
+}
 
-export const ExercisePane = ({ item }: { item: Exercise }) => {
+const ExercisePane: React.FC<ExercisePaneProps> = ({ item }) => {
   const theme = useAppTheme();
+  const navigation = useNavigation();
+
+  const handleExercisePress = () => {
+    navigation.navigate(ROUTES.EXERCISES_DESCRIPTION);
+  };
+
   return (
-    <View>
+    <TouchableOpacity onPress={handleExercisePress}>
       <List.Item
         title={<Text variant='titleMedium'>{item.name}</Text>}
         description={
@@ -20,7 +30,7 @@ export const ExercisePane = ({ item }: { item: Exercise }) => {
         }
         right={props => <List.Icon {...props} icon='chevron-right' />}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 

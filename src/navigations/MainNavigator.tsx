@@ -6,17 +6,28 @@ import WorkoutStackScreen from '../stacks/workout-stack/WorkoutStack';
 import HistoryStackScreen from '../stacks/history-stack/HistoryStack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { useAppTheme } from '../utils/use-app-theme';
+import { DarkAppTheme, LightAppTheme } from '../theme/theme';
+import { useColorScheme } from 'react-native';
 
 const Tab = createMaterialBottomTabNavigator();
 
 const MainAppNavigator = () => {
   const theme = useAppTheme();
+  const colorScheme = useColorScheme();
+  const paperTheme =
+    colorScheme !== 'dark' ? { ...LightAppTheme } : { ...DarkAppTheme };
+
   return (
     <Tab.Navigator
-      theme={theme}
+      activeColor={theme.colors.secondary}
+      inactiveColor={theme.colors.secondary}
+      sceneAnimationEnabled
+      sceneAnimationType='shifting'
+      theme={paperTheme}
       initialRouteName={ROUTES.WORKOUTSTACK}
       keyboardHidesNavigationBar={true}
       screenOptions={{}}
+      barStyle={{ backgroundColor: theme.colors.backdrop }} // Set background color using the theme
     >
       <Tab.Screen
         name={ROUTES.HISTORYSTACK}
