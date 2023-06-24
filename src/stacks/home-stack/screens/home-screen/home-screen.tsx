@@ -2,7 +2,7 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 import React from 'react';
 import { Avatar, Button, Card, Text } from 'react-native-paper';
 
-import { useAppTheme } from '../../../utils/use-app-theme';
+import { useAppTheme } from '../../../../utils/use-app-theme';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export const WorkoutHomeScreen = () => {

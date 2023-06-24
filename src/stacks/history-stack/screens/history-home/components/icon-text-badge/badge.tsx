@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import { useAppTheme } from '../../../../../utils/use-app-theme';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Text } from 'react-native-paper';
+import { useAppTheme } from '../../../../../../utils/use-app-theme';
 
 export const BadgeWithIcon = ({
   icon,

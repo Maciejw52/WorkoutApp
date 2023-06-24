@@ -5,13 +5,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { generateRandomWorkoutTime } from '../../../utils/generators';
 import { format } from 'date-fns';
 import { CompletedWorkout } from '../../../app.interface';
-import {
-  deleteAllExercises,
-  storeCompletedWorkout,
-} from '../../../state/exercises/ExercisesSlice';
+
 import { useDispatch } from 'react-redux';
 
 import { faker } from '@faker-js/faker';
+import {
+  deleteAllExercises,
+  storeCompletedWorkout,
+} from '../../../redux-store/exercises/exercises-slice';
 
 const ProfileDialog = ({
   visible,

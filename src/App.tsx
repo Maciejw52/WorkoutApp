@@ -8,8 +8,8 @@ import { DarkAppTheme, LightAppTheme } from './theme/theme';
 import { Theme } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from './state/store';
 import { enableScreens } from 'react-native-screens';
+import { persistor, store } from './redux-store/store';
 
 enableScreens();
 

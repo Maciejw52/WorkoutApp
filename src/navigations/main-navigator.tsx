@@ -8,8 +8,8 @@ import { DarkAppTheme, LightAppTheme } from '../theme/theme';
 import { useColorScheme } from 'react-native';
 import ExercisesStackScreen from './exercises-list-navigator';
 import HistoryStackScreen from './history-navigator';
-import WorkoutStackScreen from './home-navigator';
-import { ROUTES, RootStackParamList } from '../constants/routes';
+import HomeStackScreen from './home-navigator';
+import { RootStackParamList } from '../constants/routes';
 
 type MainAppNavigatorParamList = RootStackParamList & {
   HistoryStack: undefined;
@@ -53,7 +53,7 @@ const MainAppNavigator = () => {
           tabBarLabel: 'Home',
           tabBarIcon: 'home',
         }}
-        component={WorkoutStackScreen}
+        component={HomeStackScreen}
         initialParams={{ initialRoute: true }}
       />
       <Tab.Screen

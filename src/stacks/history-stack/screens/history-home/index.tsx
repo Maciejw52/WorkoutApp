@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Text, SafeAreaView, FlatList } from 'react-native';
-import { RootState } from '../../../state/store';
 import { useSelector } from 'react-redux';
-import { FlashList } from '@shopify/flash-list';
 import renderWorkoutItem from './components/render-workout-item';
-import { useAppTheme } from '../../../utils/use-app-theme';
-import { ViewProps } from 'react-native-svg/lib/typescript/fabric/utils';
+import { RootState } from '../../../../redux-store/store';
+import { useAppTheme } from '../../../../utils/use-app-theme';
 
 const styles = {
   container: {

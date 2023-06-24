@@ -3,8 +3,8 @@ import { Exercise } from '../../../../../app.interface';
 import { useAppTheme } from '../../../../../utils/use-app-theme';
 import { List, Text } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
-import { ROUTES } from '../../../../../constants/routes';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../../../../constants/routes';
 
 interface ExercisePaneProps {
   item: Exercise;
@@ -12,10 +12,10 @@ interface ExercisePaneProps {
 
 const ExercisePane: React.FC<ExercisePaneProps> = ({ item }) => {
   const theme = useAppTheme();
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const handleExercisePress = () => {
-    navigation.navigate('Exercises Description');
+    navigation.navigate('ExerciseDescription', { initialRoute: false });
   };
 
   return (

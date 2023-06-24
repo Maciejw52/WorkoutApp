@@ -6,31 +6,29 @@ import {
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList, ROUTES } from '../constants/routes';
 import Navbar from './components/navbar/Navbar';
-import WorkoutHomeScreen from '../stacks/workout-stack/workout-home';
+import WorkoutHomeScreen from '../stacks/home-stack/screens/home-screen/home-screen';
 
 type WorkoutStackScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, keyof RootStackParamList>;
   route: RouteProp<RootStackParamList, keyof RootStackParamList>;
 };
 
-const WorkoutStack = createStackNavigator<RootStackParamList>();
+const HomeStack = createStackNavigator<RootStackParamList>();
 
-const WorkoutStackScreen: React.FC<WorkoutStackScreenProps> = ({
-  navigation,
-}) => {
+const HomeStackScreen: React.FC<WorkoutStackScreenProps> = ({ navigation }) => {
   return (
-    <WorkoutStack.Navigator
+    <HomeStack.Navigator
       screenOptions={{
         header: Navbar,
       }}
     >
-      <WorkoutStack.Screen
+      <HomeStack.Screen
         name={'Workout'}
         component={WorkoutHomeScreen}
         initialParams={{ initialRoute: true }}
       />
-    </WorkoutStack.Navigator>
+    </HomeStack.Navigator>
   );
 };
 
-export default WorkoutStackScreen;
+export default HomeStackScreen;

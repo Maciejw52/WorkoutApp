@@ -6,7 +6,7 @@ import {
 import { RouteProp } from '@react-navigation/native';
 import { ROUTES, RootStackParamList } from '../constants/routes';
 import Navbar from './components/navbar/Navbar';
-import HistoryScreen from '../stacks/history-stack/history';
+import HistoryScreen from '../stacks/history-stack/screens/history-home';
 
 type HistoryStackScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, 'HistoryStack'>;
