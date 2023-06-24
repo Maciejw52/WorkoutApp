@@ -1,34 +1,32 @@
-export default {
-  LOGIN: 'Login',
-  REGISTER: 'Register',
-  FORGOT_PASSWORD: 'Forgot Password',
+import { RouteProp } from '@react-navigation/native';
 
-  HOME: 'Home',
-  HOME_TAB: 'Home Tab',
-  HOME_DRAWER: 'Home Drawer',
-
-  WALLET: 'Wallet',
-  WALLET_DRAWER: 'Wallet Drawer',
-
-  NOTIFICATIONS: 'Notifications',
-  NOTIFICATIONS_DRAWER: 'Notifications Drawer',
-
-  SETTINGS: 'Settings',
-  ACCOUNT_SETTINGS: 'Account Settings',
-  SETTINGS_NAVIGATOR: 'Settings Navigator',
-
-  SETTINGS_DETAIL: 'Settings Detail',
-  PROFILE: 'My Profile',
-
-  HISTORYSTACK: 'History',
-  HISTORY: 'History ',
-
-  EXERCISESSTACK: 'Exercises',
-  EXERCISES: 'Exercises ',
-  EXERCISES_DESCRIPTION: 'Exercise Description',
-
-  WORKOUTSTACK: 'Home',
-  WORKOUT: 'Workout ',
-
-  CATEGORY: 'Category',
+// Define your screen names as string literals
+export const ROUTES = {
+  MAINAPPNAVIGATOR: 'MainAppNavigator',
+  HISTORYSTACK: 'HistoryStack',
+  WORKOUTSTACK: 'WorkoutStack',
+  EXERCISESSTACK: 'ExercisesStack',
+  EXERCISES: 'Exercises',
+  EXERCISES_DESCRIPTION: 'ExerciseDescription',
+  HISTORY: 'History',
+  WORKOUT: 'Workout',
+  // Add more screen names as needed
 };
+
+// Define the param list for each screen
+export type RootStackParamList = {
+  MainAppNavigator: undefined;
+  HistoryStack: undefined;
+  History: { initialRoute: boolean };
+
+  WorkoutStack: undefined;
+  Workout: { initialRoute: boolean };
+
+  ExercisesStack: undefined;
+  Exercises: { initialRoute: boolean };
+  ExerciseDescription: { initialRoute: boolean };
+};
+
+// Define the route prop for accessing params in each screen component
+export type RootRouteProp<RouteName extends keyof RootStackParamList> =
+  RouteProp<RootStackParamList, RouteName>;

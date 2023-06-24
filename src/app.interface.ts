@@ -55,3 +55,11 @@ export interface CompletedWorkout {
   duration: string;
   exercises: ExerciseHistory[];
 }
+
+// Navigation
+
+type ExerciseRootStackParamList = {
+  Home: undefined;
+  Profile: undefined;
+  Feed: undefined;
+};

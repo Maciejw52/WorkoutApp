@@ -4,7 +4,7 @@ import { useAppTheme } from '../../../../../utils/use-app-theme';
 import { List, Text } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-import { ROUTES } from '../../../../../constants';
+import { ROUTES } from '../../../../../constants/routes';
 
 interface ExercisePaneProps {
   item: Exercise;
@@ -15,7 +15,7 @@ const ExercisePane: React.FC<ExercisePaneProps> = ({ item }) => {
   const navigation = useNavigation();
 
   const handleExercisePress = () => {
-    navigation.navigate(ROUTES.EXERCISES_DESCRIPTION);
+    navigation.navigate('Exercises Description');
   };
 
   return (

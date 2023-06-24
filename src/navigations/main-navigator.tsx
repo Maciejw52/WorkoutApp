@@ -1,15 +1,26 @@
 import React from 'react';
-import { ROUTES } from '../constants';
-
-import ExercisesStackScreen from '../stacks/exercise-stack/ExercisesStack';
-import WorkoutStackScreen from '../stacks/workout-stack/WorkoutStack';
-import HistoryStackScreen from '../stacks/history-stack/HistoryStack';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import {
+  MaterialBottomTabNavigationProp,
+  createMaterialBottomTabNavigator,
+} from '@react-navigation/material-bottom-tabs';
 import { useAppTheme } from '../utils/use-app-theme';
 import { DarkAppTheme, LightAppTheme } from '../theme/theme';
 import { useColorScheme } from 'react-native';
+import ExercisesStackScreen from './exercises-list-navigator';
+import HistoryStackScreen from './history-navigator';
+import WorkoutStackScreen from './home-navigator';
+import { ROUTES, RootStackParamList } from '../constants/routes';
 
-const Tab = createMaterialBottomTabNavigator();
+type MainAppNavigatorParamList = RootStackParamList & {
+  HistoryStack: undefined;
+  WorkoutStack: undefined;
+  ExercisesStack: undefined;
+};
+
+type MainAppNavigatorNavigationProp =
+  MaterialBottomTabNavigationProp<MainAppNavigatorParamList>;
+
+const Tab = createMaterialBottomTabNavigator<MainAppNavigatorParamList>();
 
 const MainAppNavigator = () => {
   const theme = useAppTheme();
@@ -23,30 +34,32 @@ const MainAppNavigator = () => {
       sceneAnimationEnabled
       sceneAnimationType='shifting'
       theme={paperTheme}
-      initialRouteName={ROUTES.WORKOUTSTACK}
+      initialRouteName={'WorkoutStack'}
       keyboardHidesNavigationBar={true}
       screenOptions={{}}
       barStyle={{ backgroundColor: theme.colors.backdrop }} // Set background color using the theme
     >
       <Tab.Screen
-        name={ROUTES.HISTORYSTACK}
+        name={'HistoryStack'}
         options={{
+          tabBarLabel: 'History',
           tabBarIcon: 'chart-areaspline',
         }}
         component={HistoryStackScreen}
-        initialParams={{ initialRoute: false }}
       />
       <Tab.Screen
-        name={ROUTES.WORKOUTSTACK}
+        name={'WorkoutStack'}
         options={{
+          tabBarLabel: 'Home',
           tabBarIcon: 'home',
         }}
         component={WorkoutStackScreen}
         initialParams={{ initialRoute: true }}
       />
       <Tab.Screen
-        name={ROUTES.EXERCISESSTACK}
+        name={'ExercisesStack'}
         options={{
+          tabBarLabel: 'Exercises',
           tabBarIcon: 'arm-flex',
         }}
         component={ExercisesStackScreen}

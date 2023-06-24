@@ -1,15 +1,16 @@
 import React from 'react';
 import { Appbar } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import { useAppTheme } from '../../../utils/use-app-theme';
 import ProfileDialog from '../profile-dialog/profile-dialog';
 
 const Navbar = ({ route }: { route: any }) => {
-  const navigation = useNavigation();
   const theme = useAppTheme();
-  console.log(route);
+  const { key } = useRoute();
+
   const handleBackButtonPress = () => {
-    navigation.goBack();
+    if (key === 'a') {
+    }
   };
 
   const [visible, setVisible] = React.useState(false);
